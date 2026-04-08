@@ -20,7 +20,7 @@
       background: var(--bg);
       color: #f0f0f0;
       line-height: 1.75;
-      font-size: 16px;                    /* 모바일 기본 폰트 크기 */
+      font-size: 16px;
     }
 
     .hero-bg {
@@ -30,37 +30,46 @@
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      opacity: 0.09;                      /* 모바일에서 더 은은하게 */
+      opacity: 0.09;
       z-index: -1;
     }
 
     .container {
-      max-width: 520px;
+      max-width: 540px;
       margin: 0 auto;
-      padding: 80px 24px 100px;           /* 모바일 상하 여백 넉넉하게 */
+      padding: 90px 24px 120px;
       text-align: center;
       position: relative;
       z-index: 2;
     }
 
+    /* 로고 크게 개선 */
+    .logo {
+      margin-bottom: 85px;
+    }
     .logo img {
-      height: 56px;
-      margin-bottom: 80px;
+      height: 78px;                    /* ← 여기서 로고 크기 크게 조정 */
+      filter: brightness(1.12);
+      transition: transform 0.4s ease;
+    }
+    .logo img:hover {
+      transform: scale(1.03);
     }
 
     h1 {
-      font-size: 28px;                    /* 모바일에서 적당한 크기 */
+      font-size: 32px;
       font-weight: 700;
-      letter-spacing: -0.8px;
-      margin-bottom: 20px;
+      letter-spacing: -1.1px;
+      margin-bottom: 22px;
+      line-height: 1.25;
     }
 
     .subtitle {
-      font-size: 17px;
+      font-size: 18px;
       color: #b0b0b0;
-      max-width: 420px;
-      margin: 0 auto 70px;
-      line-height: 1.6;
+      max-width: 440px;
+      margin: 0 auto 75px;
+      line-height: 1.55;
     }
 
     .btn {
@@ -68,33 +77,35 @@
       width: 100%;
       max-width: 420px;
       margin: 14px auto;
-      padding: 18px 24px;
+      padding: 19px 28px;
       border-radius: 16px;
-      font-size: 17px;
+      font-size: 17.2px;
       font-weight: 600;
-      min-height: 58px;                   /* 터치하기 좋은 높이 */
+      min-height: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: all 0.4s ease;
     }
 
     .btn:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(10, 132, 255, 0.3);
     }
 
     .kakao { background: #fee500; color: #000; }
     .telegram { background: #1e90ff; color: #fff; }
 
     .features {
-      margin: 90px auto 0;
-      max-width: 380px;
+      margin: 95px auto 0;
+      max-width: 390px;
       text-align: left;
-      font-size: 16px;
+      font-size: 16.2px;
     }
 
     .features li {
-      margin: 20px 0;
-      padding-left: 32px;
+      margin: 22px 0;
+      padding-left: 34px;
       position: relative;
     }
 
@@ -103,34 +114,34 @@
       position: absolute;
       left: 0;
       color: var(--accent);
-      font-size: 21px;
+      font-size: 22px;
     }
 
     .concern {
-      margin: 90px 0 50px;
+      margin: 95px 0 55px;
     }
 
     .concern h3 {
-      font-size: 17px;
+      font-size: 17.5px;
       color: #ccc;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
 
     .final-text {
-      font-size: 17px;
+      font-size: 17.5px;
       color: #ddd;
-      margin: 60px 0 32px;
+      margin: 65px 0 35px;
     }
 
     .disclaimer {
-      margin-top: 100px;
+      margin-top: 110px;
       font-size: 13.5px;
       color: #666;
       line-height: 1.7;
     }
 
     .footer {
-      margin-top: 70px;
+      margin-top: 75px;
       font-size: 13px;
       color: #555;
     }
@@ -141,8 +152,11 @@
   <div class="hero-bg"></div>
 
   <div class="container">
+    <!-- 로고 -->
     <div class="logo">
-      <a href="/"><img src="logo.jpg" alt="BlackRock Labs Logo"></a>
+      <a href="/">
+        <img src="logo.jpg" alt="BlackRock Labs Logo">
+      </a>
     </div>
 
     <h1>데이터 기반 주식 정보 플랫폼</h1>
