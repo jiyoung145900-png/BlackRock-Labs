@@ -20,7 +20,6 @@
       background: var(--bg);
       color: #f0f0f0;
       line-height: 1.8;
-      font-size: 16px;
     }
 
     .hero-bg {
@@ -35,36 +34,39 @@
     }
 
     .container {
-      max-width: 520px;
+      max-width: 620px;
       margin: 0 auto;
-      padding: 80px 20px 100px;
+      padding: 80px 24px 120px;
       text-align: center;
       position: relative;
       z-index: 2;
     }
 
-    /* 로고 - 반응형으로 크기 조절 */
+    /* 로고 크게 (약 2배) */
+    .logo {
+      margin-bottom: 90px;
+    }
     .logo img {
-      height: 72px;
-      margin-bottom: 80px;
+      height: 180px;                    /* 모바일 기준 크게 */
+      max-width: 100%;
       transition: transform 0.4s ease;
     }
     .logo img:hover {
-      transform: scale(1.04);
+      transform: scale(1.03);
     }
 
     h1 {
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 700;
-      letter-spacing: -1px;
-      margin-bottom: 20px;
+      letter-spacing: -1.2px;
+      margin-bottom: 22px;
     }
 
     .subtitle {
-      font-size: 17px;
+      font-size: 18px;
       color: #b0b0b0;
-      max-width: 420px;
-      margin: 0 auto 70px;
+      max-width: 460px;
+      margin: 0 auto 80px;
       line-height: 1.55;
     }
 
@@ -93,8 +95,8 @@
     .telegram { background: #1e90ff; color: #fff; }
 
     .section {
-      margin: 90px auto 0;
-      max-width: 390px;
+      margin: 95px auto 0;
+      max-width: 400px;
       text-align: left;
       font-size: 16.2px;
     }
@@ -118,7 +120,7 @@
     }
 
     .concern {
-      margin: 95px 0 55px;
+      margin: 100px 0 60px;
     }
 
     .concern h3 {
@@ -130,47 +132,36 @@
     .final-text {
       font-size: 17.5px;
       color: #ddd;
-      margin: 70px 0 38px;
+      margin: 75px 0 40px;
     }
 
     .disclaimer {
-      margin-top: 110px;
+      margin-top: 120px;
       font-size: 13.5px;
       color: #666;
       line-height: 1.7;
     }
 
     .footer {
-      margin-top: 80px;
+      margin-top: 85px;
       font-size: 13px;
       color: #555;
     }
 
-    /* ==================== 반응형 디자인 ==================== */
+    /* ==================== 반응형 ==================== */
     @media (min-width: 768px) {   /* 태블릿 */
-      .container {
-        max-width: 580px;
-        padding: 110px 30px 140px;
-      }
-      .logo img { height: 80px; margin-bottom: 90px; }
-      h1 { font-size: 33px; }
-      .subtitle { font-size: 18px; margin-bottom: 80px; }
+      .container { padding: 110px 30px 150px; }
+      .logo img { height: 190px; margin-bottom: 100px; }
+      h1 { font-size: 34px; }
     }
 
     @media (min-width: 1024px) {  /* 데스크톱 */
-      .container {
-        max-width: 660px;
-        padding: 150px 40px 180px;
+      .container { 
+        max-width: 680px;
+        padding: 140px 40px 180px; 
       }
-      .logo img { height: 94px; margin-bottom: 110px; }
+      .logo img { height: 210px; margin-bottom: 110px; }
       h1 { font-size: 38px; letter-spacing: -1.5px; }
-      .subtitle { font-size: 19.5px; max-width: 520px; margin-bottom: 95px; }
-      .btn {
-        font-size: 17.8px;
-        padding: 21px 34px;
-        min-height: 64px;
-      }
-      .section { max-width: 420px; }
     }
   </style>
 </head>
