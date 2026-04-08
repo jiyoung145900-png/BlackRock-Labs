@@ -11,64 +11,61 @@
     :root {
       --bg: #0a0a0a;
       --accent: #0a84ff;
-      --text: #f0f0f0;
-      --gray: #b0b0b0;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
       background: var(--bg);
-      color: var(--text);
+      color: #f0f0f0;
       line-height: 1.75;
       font-size: 16px;
     }
 
+    /* 배경 이미지 변경 (고급 금융 느낌) */
     .hero-bg {
       position: fixed;
       inset: 0;
-      background-image: url('background.png');
+      background-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&q=85'); 
+      /* 위 URL은 고품질 다크 블루 금융 추상 배경입니다. 원하시면 본인 이미지로 교체하세요 */
       background-size: cover;
       background-position: center;
-      opacity: 0.09;
+      background-attachment: fixed;
+      opacity: 0.11;           /* 고급스럽게 은은하게 조정 */
       z-index: -1;
     }
 
     .container {
-      max-width: 520px;
+      max-width: 540px;
       margin: 0 auto;
-      padding: 80px 20px 100px;
+      padding: 90px 24px 120px;
       text-align: center;
       position: relative;
       z-index: 2;
     }
 
     .logo img {
-      height: 68px;
-      margin-bottom: 75px;
-      transition: transform 0.3s ease;
+      height: 78px;
+      margin-bottom: 85px;
+      transition: transform 0.4s ease;
     }
     .logo img:hover {
       transform: scale(1.04);
     }
 
     h1 {
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 700;
-      letter-spacing: -0.9px;
-      margin-bottom: 18px;
+      letter-spacing: -1.1px;
+      margin-bottom: 22px;
     }
 
     .subtitle {
-      font-size: 17px;
-      color: var(--gray);
-      max-width: 420px;
-      margin: 0 auto 65px;
+      font-size: 18px;
+      color: #b0b0b0;
+      max-width: 440px;
+      margin: 0 auto 75px;
       line-height: 1.55;
     }
 
@@ -76,8 +73,8 @@
       display: block;
       width: 100%;
       max-width: 420px;
-      margin: 13px auto;
-      padding: 18px 24px;
+      margin: 14px auto;
+      padding: 19px 28px;
       border-radius: 16px;
       font-size: 17px;
       font-weight: 600;
@@ -89,20 +86,18 @@
     }
 
     .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(10, 132, 255, 0.25);
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(10, 132, 255, 0.25);
     }
 
     .kakao { background: #fee500; color: #000; }
     .telegram { background: #1e90ff; color: #fff; }
 
-    /* 특징 & 고민 섹션 */
     .section {
-      margin: 85px 0;
-      max-width: 380px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 90px auto 0;
+      max-width: 390px;
       text-align: left;
+      font-size: 16.2px;
     }
 
     .section ul {
@@ -110,10 +105,9 @@
     }
 
     .section li {
-      margin: 18px 0;
-      padding-left: 32px;
+      margin: 22px 0;
+      padding-left: 34px;
       position: relative;
-      font-size: 16px;
     }
 
     .section li:before {
@@ -121,50 +115,36 @@
       position: absolute;
       left: 0;
       color: var(--accent);
-      font-size: 21px;
+      font-size: 22px;
+    }
+
+    .concern {
+      margin: 95px 0 55px;
+    }
+
+    .concern h3 {
+      font-size: 17.5px;
+      color: #ccc;
+      margin-bottom: 26px;
+    }
+
+    .final-text {
+      font-size: 17.5px;
+      color: #ddd;
+      margin: 65px 0 35px;
     }
 
     .disclaimer {
-      margin-top: 100px;
+      margin-top: 110px;
       font-size: 13.5px;
       color: #666;
       line-height: 1.7;
     }
 
     .footer {
-      margin-top: 70px;
+      margin-top: 75px;
       font-size: 13px;
       color: #555;
-    }
-
-    /* ==================== 반응형 ==================== */
-    /* 모바일 (기본) */
-    
-    @media (min-width: 768px) {   /* 태블릿 */
-      .container {
-        padding: 110px 30px 130px;
-        max-width: 580px;
-      }
-      .logo img { height: 74px; margin-bottom: 85px; }
-      h1 { font-size: 32px; }
-      .subtitle { font-size: 18px; margin-bottom: 75px; }
-      .section { margin: 95px 0; }
-    }
-
-    @media (min-width: 1024px) {  /* 데스크톱 */
-      .container {
-        max-width: 640px;
-        padding: 140px 40px 160px;
-      }
-      .logo img { height: 85px; margin-bottom: 100px; }
-      h1 { font-size: 37px; letter-spacing: -1.3px; }
-      .subtitle { font-size: 19px; max-width: 500px; margin-bottom: 85px; }
-      .btn {
-        font-size: 17.5px;
-        padding: 20px 32px;
-        min-height: 62px;
-      }
-      .section { max-width: 400px; margin: 100px 0; }
     }
   </style>
 </head>
@@ -194,8 +174,8 @@
       </ul>
     </div>
 
-    <div class="section">
-      <h3 style="font-size:17.5px; color:#ccc; margin-bottom:26px;">이런 고민 있으신가요?</h3>
+    <div class="concern">
+      <h3>이런 고민 있으신가요?</h3>
       <ul>
         <li>• 어떤 종목을 사야 할지 모르겠어요</li>
         <li>• 정보가 너무 많아 혼란스러워요</li>
@@ -203,9 +183,7 @@
       </ul>
     </div>
 
-    <p style="font-size:17.5px; color:#ddd; margin:65px 0 35px;">
-      지금 바로 시장에서 주목받는 정보를<br>무료로 받아보세요
-    </p>
+    <p class="final-text">지금 바로 시장에서 주목받는 정보를<br>무료로 받아보세요</p>
 
     <a href="#" class="btn kakao">카카오톡 시작하기</a>
 
