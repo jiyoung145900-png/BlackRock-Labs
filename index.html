@@ -11,14 +11,20 @@
     :root {
       --bg: #0a0a0a;
       --accent: #0a84ff;
+      --text: #f0f0f0;
+      --gray: #b0b0b0;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
       background: var(--bg);
-      color: #f0f0f0;
+      color: var(--text);
       line-height: 1.75;
       font-size: 16px;
     }
@@ -29,46 +35,40 @@
       background-image: url('background.png');
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
       opacity: 0.09;
       z-index: -1;
     }
 
     .container {
-      max-width: 540px;
+      max-width: 520px;
       margin: 0 auto;
-      padding: 90px 24px 120px;
+      padding: 80px 20px 100px;
       text-align: center;
       position: relative;
       z-index: 2;
     }
 
-    /* 로고 크게 개선 */
-    .logo {
-      margin-bottom: 85px;
-    }
     .logo img {
-      height: 78px;                    /* ← 여기서 로고 크기 크게 조정 */
-      filter: brightness(1.12);
-      transition: transform 0.4s ease;
+      height: 68px;
+      margin-bottom: 75px;
+      transition: transform 0.3s ease;
     }
     .logo img:hover {
-      transform: scale(1.03);
+      transform: scale(1.04);
     }
 
     h1 {
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 700;
-      letter-spacing: -1.1px;
-      margin-bottom: 22px;
-      line-height: 1.25;
+      letter-spacing: -0.9px;
+      margin-bottom: 18px;
     }
 
     .subtitle {
-      font-size: 18px;
-      color: #b0b0b0;
-      max-width: 440px;
-      margin: 0 auto 75px;
+      font-size: 17px;
+      color: var(--gray);
+      max-width: 420px;
+      margin: 0 auto 65px;
       line-height: 1.55;
     }
 
@@ -76,12 +76,12 @@
       display: block;
       width: 100%;
       max-width: 420px;
-      margin: 14px auto;
-      padding: 19px 28px;
+      margin: 13px auto;
+      padding: 18px 24px;
       border-radius: 16px;
-      font-size: 17.2px;
+      font-size: 17px;
       font-weight: 600;
-      min-height: 60px;
+      min-height: 58px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -89,61 +89,82 @@
     }
 
     .btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 35px rgba(10, 132, 255, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(10, 132, 255, 0.25);
     }
 
     .kakao { background: #fee500; color: #000; }
     .telegram { background: #1e90ff; color: #fff; }
 
-    .features {
-      margin: 95px auto 0;
-      max-width: 390px;
+    /* 특징 & 고민 섹션 */
+    .section {
+      margin: 85px 0;
+      max-width: 380px;
+      margin-left: auto;
+      margin-right: auto;
       text-align: left;
-      font-size: 16.2px;
     }
 
-    .features li {
-      margin: 22px 0;
-      padding-left: 34px;
+    .section ul {
+      list-style: none;
+    }
+
+    .section li {
+      margin: 18px 0;
+      padding-left: 32px;
       position: relative;
+      font-size: 16px;
     }
 
-    .features li:before {
+    .section li:before {
       content: "✓";
       position: absolute;
       left: 0;
       color: var(--accent);
-      font-size: 22px;
-    }
-
-    .concern {
-      margin: 95px 0 55px;
-    }
-
-    .concern h3 {
-      font-size: 17.5px;
-      color: #ccc;
-      margin-bottom: 26px;
-    }
-
-    .final-text {
-      font-size: 17.5px;
-      color: #ddd;
-      margin: 65px 0 35px;
+      font-size: 21px;
     }
 
     .disclaimer {
-      margin-top: 110px;
+      margin-top: 100px;
       font-size: 13.5px;
       color: #666;
       line-height: 1.7;
     }
 
     .footer {
-      margin-top: 75px;
+      margin-top: 70px;
       font-size: 13px;
       color: #555;
+    }
+
+    /* ==================== 반응형 ==================== */
+    /* 모바일 (기본) */
+    
+    @media (min-width: 768px) {   /* 태블릿 */
+      .container {
+        padding: 110px 30px 130px;
+        max-width: 580px;
+      }
+      .logo img { height: 74px; margin-bottom: 85px; }
+      h1 { font-size: 32px; }
+      .subtitle { font-size: 18px; margin-bottom: 75px; }
+      .section { margin: 95px 0; }
+    }
+
+    @media (min-width: 1024px) {  /* 데스크톱 */
+      .container {
+        max-width: 640px;
+        padding: 140px 40px 160px;
+      }
+      .logo img { height: 85px; margin-bottom: 100px; }
+      h1 { font-size: 37px; letter-spacing: -1.3px; }
+      .subtitle { font-size: 19px; max-width: 500px; margin-bottom: 85px; }
+      .btn {
+        font-size: 17.5px;
+        padding: 20px 32px;
+        min-height: 62px;
+      }
+      .section { max-width: 400px; margin: 100px 0; }
     }
   </style>
 </head>
@@ -152,11 +173,8 @@
   <div class="hero-bg"></div>
 
   <div class="container">
-    <!-- 로고 -->
     <div class="logo">
-      <a href="/">
-        <img src="logo.jpg" alt="BlackRock Labs Logo">
-      </a>
+      <a href="/"><img src="logo.jpg" alt="BlackRock Labs Logo"></a>
     </div>
 
     <h1>데이터 기반 주식 정보 플랫폼</h1>
@@ -168,7 +186,7 @@
     <a href="#" class="btn kakao">카카오톡으로 무료 정보 받기</a>
     <a href="#" class="btn telegram">텔레그램 참여하기</a>
 
-    <div class="features">
+    <div class="section">
       <ul>
         <li>실시간 시장 데이터 분석</li>
         <li>초보자도 이해하기 쉬운 설명</li>
@@ -176,8 +194,8 @@
       </ul>
     </div>
 
-    <div class="concern">
-      <h3>이런 고민 있으신가요?</h3>
+    <div class="section">
+      <h3 style="font-size:17.5px; color:#ccc; margin-bottom:26px;">이런 고민 있으신가요?</h3>
       <ul>
         <li>• 어떤 종목을 사야 할지 모르겠어요</li>
         <li>• 정보가 너무 많아 혼란스러워요</li>
@@ -185,7 +203,9 @@
       </ul>
     </div>
 
-    <p class="final-text">지금 바로 시장에서 주목받는 정보를<br>무료로 받아보세요</p>
+    <p style="font-size:17.5px; color:#ddd; margin:65px 0 35px;">
+      지금 바로 시장에서 주목받는 정보를<br>무료로 받아보세요
+    </p>
 
     <a href="#" class="btn kakao">카카오톡 시작하기</a>
 
