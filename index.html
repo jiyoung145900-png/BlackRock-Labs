@@ -42,12 +42,11 @@
       z-index: 2;
     }
 
-    /* 로고 크게 (약 2배) */
     .logo {
       margin-bottom: 90px;
     }
     .logo img {
-      height: 180px;                    /* 모바일 기준 크게 */
+      height: 180px;
       max-width: 100%;
       transition: transform 0.4s ease;
     }
@@ -148,17 +147,17 @@
       color: #555;
     }
 
-    /* ==================== 반응형 ==================== */
-    @media (min-width: 768px) {   /* 태블릿 */
+    /* 반응형 */
+    @media (min-width: 768px) {
       .container { padding: 110px 30px 150px; }
       .logo img { height: 190px; margin-bottom: 100px; }
       h1 { font-size: 34px; }
     }
 
-    @media (min-width: 1024px) {  /* 데스크톱 */
-      .container { 
+    @media (min-width: 1024px) {
+      .container {
         max-width: 680px;
-        padding: 140px 40px 180px; 
+        padding: 140px 40px 180px;
       }
       .logo img { height: 210px; margin-bottom: 110px; }
       h1 { font-size: 38px; letter-spacing: -1.5px; }
@@ -182,8 +181,15 @@
       전문가 수준의 인사이트를 누구나 쉽게
     </p>
 
+    <!-- 카카오톡 버튼 (아직 링크 없으면 # 유지) -->
     <a href="#" class="btn kakao">카카오톡으로 무료 정보 받기</a>
-    <a href="#" class="btn telegram">텔레그램 참여하기</a>
+    
+    <!-- 텔레그램 버튼 - @syk345 적용 -->
+    <a href="https://t.me/syk345" 
+       target="_blank" 
+       class="btn telegram">
+      텔레그램 참여하기
+    </a>
 
     <div class="section">
       <ul>
@@ -204,6 +210,7 @@
 
     <p class="final-text">지금 바로 시장에서 주목받는 정보를<br>무료로 받아보세요</p>
 
+    <!-- 하단 카카오톡 버튼 -->
     <a href="#" class="btn kakao">카카오톡 시작하기</a>
 
     <div class="disclaimer">
