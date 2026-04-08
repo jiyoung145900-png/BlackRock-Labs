@@ -4,13 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BlackRock Labs</title>
+  
+  <!-- Google Fonts (고급스러운 글씨체) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --primary-blue: #0a84ff;
+      --text-light: #f0f0f0;
+      --text-gray: #aaaaaa;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0d0d0d;
-      color: #ffffff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0a;           /* 기본 배경 (당신이 이미지 넣을 때 이 부분 수정) */
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* 배경 이미지를 쉽게 넣을 수 있게 만든 부분 */
+    .hero-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('your-background.jpg');   /* ← 여기에 당신이 넣고 싶은 배경 이미지 경로 넣으세요 */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      opacity: 0.15;                 /* 배경 어두운 정도 조절 (0.1 ~ 0.3 추천) */
+      z-index: -1;
     }
 
     .container {
@@ -18,36 +43,45 @@
       margin: 0 auto;
       padding: 40px 20px;
       text-align: center;
+      position: relative;
+      z-index: 2;
     }
 
     /* 로고 */
-    .logo {
-      margin-bottom: 30px;
-    }
-
     .logo img {
-      width: 140px;
-      opacity: 0.95;
+      width: 160px;
+      filter: brightness(1.05);
+      margin-bottom: 32px;
     }
 
     h1 {
-      font-size: 24px;
-      margin-bottom: 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
     }
 
     p {
-      font-size: 14px;
-      color: #cccccc;
-      line-height: 1.6;
+      font-size: 15px;
+      color: var(--text-gray);
+      margin-bottom: 24px;
     }
 
     .btn {
       display: block;
-      margin: 15px 0;
-      padding: 15px;
-      border-radius: 8px;
+      margin: 14px 0;
+      padding: 16px 20px;
+      border-radius: 12px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
 
     .kakao {
@@ -61,90 +95,82 @@
     }
 
     .section {
-      margin-top: 40px;
+      margin: 48px 0 32px;
     }
 
     .small {
-      font-size: 12px;
-      color: #888;
-      margin-top: 30px;
+      font-size: 13px;
+      color: #777;
+      margin-top: 40px;
     }
 
-    /* 푸터 */
     .footer {
-      margin-top: 40px;
-      font-size: 12px;
-      color: #777;
+      margin-top: 50px;
+      font-size: 12.5px;
+      color: #555;
     }
 
     .footer a {
-      color: #aaa;
+      color: #888;
       text-decoration: none;
-      margin: 0 5px;
     }
 
     .footer a:hover {
-      text-decoration: underline;
+      color: #aaa;
     }
   </style>
 </head>
-
 <body>
 
-<div class="container">
+  <!-- 배경 이미지 레이어 -->
+  <div class="hero-bg"></div>
 
-  <!-- 🔥 로고 (여기 핵심) -->
-  <div class="logo">
-    <a href="/">
-      <img src="logo.jpg" alt="BlackRock Labs Logo">
-    </a>
-  </div>
+  <div class="container">
+    <!-- 로고 -->
+    <div class="logo">
+      <a href="/">
+        <img src="logo.jpg" alt="BlackRock Labs Logo">
+      </a>
+    </div>
 
-  <h1>데이터 기반 주식 정보 플랫폼</h1>
-  <p>시장 흐름 분석부터 종목 정보까지<br>누구나 쉽게 확인하세요</p>
+    <h1>데이터 기반 주식 정보 플랫폼</h1>
+    <p>시장 흐름 분석부터 종목 추천까지<br>전문가 수준의 인사이트를 누구나 쉽게</p>
 
-  <a href="#" class="btn kakao">카카오톡으로 무료 정보 받기</a>
-  <a href="#" class="btn telegram">텔레그램 참여하기</a>
-
-  <div class="section">
-    <p>
-      ✔ 시장 데이터 기반 분석<br>
-      ✔ 초보도 이해 가능한 정보 제공<br>
-      ✔ 실시간 업데이트
-    </p>
-  </div>
-
-  <div class="section">
-    <p>
-      이런 고민 있으셨나요?<br><br>
-      - 어떤 종목을 사야 할지 모르겠다<br>
-      - 정보가 너무 많아 혼란스럽다<br>
-      - 타이밍을 놓친 경험이 있다
-    </p>
-  </div>
-
-  <div class="section">
-    <p>
-      지금 시장에서 주목받는 종목 정보를<br>
-      무료로 받아보세요
-    </p>
-
-    <a href="#" class="btn kakao">카카오톡 시작하기</a>
+    <a href="#" class="btn kakao">카카오톡으로 무료 정보 받기</a>
     <a href="#" class="btn telegram">텔레그램 참여하기</a>
+
+    <div class="section">
+      <p>
+        ✔ 실시간 시장 데이터 분석<br>
+        ✔ 초보자도 이해하기 쉬운 설명<br>
+        ✔ 매일 업데이트되는 핵심 종목
+      </p>
+    </div>
+
+    <div class="section">
+      <p>
+        이런 고민 있으신가요?<br><br>
+        • 어떤 종목을 사야 할지 모르겠어요<br>
+        • 정보가 너무 많아 혼란스러워요<br>
+        • 타이밍을 자꾸 놓쳐요
+      </p>
+    </div>
+
+    <div class="section">
+      <p>지금 바로 시장에서 주목받는 정보를<br>무료로 받아보세요</p>
+      <a href="#" class="btn kakao">카카오톡 시작하기</a>
+      <a href="#" class="btn telegram">텔레그램 참여하기</a>
+    </div>
+
+    <div class="small">
+      ※ 투자에는 원금 손실의 위험이 있습니다.<br>
+      모든 정보는 참고용이며, 투자 판단의 책임은 본인에게 있습니다.
+    </div>
+
+    <div class="footer">
+      <a href="terms.html">이용약관</a> |
+      <a href="privacy.html">개인정보처리방침</a>
+    </div>
   </div>
-
-  <div class="small">
-    ※ 투자에는 원금 손실의 위험이 있습니다.<br>
-    모든 정보는 참고용이며 투자 판단의 책임은 본인에게 있습니다.
-  </div>
-
-  <!-- 🔒 푸터 -->
-  <div class="footer">
-    <a href="terms.html">이용약관</a> |
-    <a href="privacy.html">개인정보처리방침</a>
-  </div>
-
-</div>
-
 </body>
 </html>
