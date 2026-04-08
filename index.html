@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* 더욱 깊이감 있는 다크 컬러로 조정 */
       --bg-deep: #06080e;
       --bg-mid: #090c15;
       --accent: #00b4ff;
@@ -26,46 +25,56 @@
       overflow-x: hidden;
     }
 
-    /* --- 수정된 프리미엄 배경 시스템 --- */
+    /* --- 프리미엄 배경 시스템 (이미지 + 효과 융합) --- */
     .hero-bg {
       position: fixed;
       inset: 0;
       z-index: -1;
-      background: radial-gradient(circle at center, var(--bg-mid) 0%, var(--bg-deep) 100%);
+      /* 배경 이미지 설정 */
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      /* 이미지 위에 어두운 톤을 깔아 텍스트 가독성 확보 */
+      background-color: rgba(6, 8, 14, 0.75); 
+      background-blend-mode: darken;
     }
 
-    /* 데이터 네트워크 그리드 패턴 */
+    /* 데이터 네트워크 그리드 패턴 (이미지 위에 미세하게 레이어드) */
     .hero-bg::before {
       content: '';
       position: absolute;
       inset: 0;
-      opacity: 0.05;
+      opacity: 0.04; 
       background-image: 
         linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-        radial-gradient(circle at center, rgba(0, 180, 255, 0.4) 1px, transparent 1.5px);
+        radial-gradient(circle at center, rgba(0, 180, 255, 0.3) 1px, transparent 1.5px);
       background-size: 80px 80px, 80px 80px, 80px 80px;
       background-position: center;
+      z-index: 1;
     }
 
-    /* 은은한 글로벌 라이팅 효과 */
+    /* 글로벌 라이팅 효과 */
     .hero-bg::after {
       content: '';
       position: absolute;
       inset: 0;
       background: 
-        radial-gradient(circle at 80% 20%, rgba(0, 180, 255, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 20% 80%, rgba(0, 180, 255, 0.05) 0%, transparent 50%);
+        radial-gradient(circle at 80% 20%, rgba(0, 180, 255, 0.07) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(0, 180, 255, 0.04) 0%, transparent 50%);
+      z-index: 2;
     }
 
-    /* --- 기존 레이아웃 및 기능 유지 --- */
+    /* --- 레이아웃 스타일 --- */
     .container {
       max-width: 680px;
       margin: 0 auto;
       padding: 120px 32px 160px;
       text-align: center;
       position: relative;
-      z-index: 2;
+      z-index: 10;
     }
 
     .logo {
@@ -75,6 +84,8 @@
     .logo img {
       height: 190px;
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      /* 로고 선명도 최적화 */
+      image-rendering: -webkit-optimize-contrast;
     }
 
     .logo img:hover {
@@ -135,6 +146,16 @@
       margin-bottom: 32px;
     }
 
+    .section ul, .concern ul {
+      list-style: none;
+    }
+
+    .section li::before {
+      content: '✓ ';
+      color: var(--accent);
+      font-weight: bold;
+    }
+
     .final-text {
       font-size: 19px;
       color: #e0e0e0;
@@ -154,8 +175,12 @@
       font-size: 13.8px;
       color: #555;
     }
-
-    ul { list-style: none; }
+    
+    .footer a {
+      color: #555;
+      text-decoration: none;
+      margin: 0 10px;
+    }
   </style>
 </head>
 <body>
