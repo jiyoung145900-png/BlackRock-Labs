@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* 더욱 깊이감 있는 다크 컬러로 조정 */
       --bg-deep: #06080e;
       --bg-mid: #090c15;
       --accent: #00b4ff;
@@ -26,7 +25,7 @@
       overflow-x: hidden;
     }
 
-    /* --- 수정된 프리미엄 배경 시스템 --- */
+    /* 프리미엄 배경 시스템 */
     .hero-bg {
       position: fixed;
       inset: 0;
@@ -34,7 +33,6 @@
       background: radial-gradient(circle at center, var(--bg-mid) 0%, var(--bg-deep) 100%);
     }
 
-    /* 데이터 네트워크 그리드 패턴 */
     .hero-bg::before {
       content: '';
       position: absolute;
@@ -48,7 +46,6 @@
       background-position: center;
     }
 
-    /* 은은한 글로벌 라이팅 효과 */
     .hero-bg::after {
       content: '';
       position: absolute;
@@ -58,7 +55,6 @@
         radial-gradient(circle at 20% 80%, rgba(0, 180, 255, 0.05) 0%, transparent 50%);
     }
 
-    /* --- 기존 레이아웃 및 기능 유지 --- */
     .container {
       max-width: 680px;
       margin: 0 auto;
@@ -69,17 +65,24 @@
     }
 
     .logo {
-      margin-bottom: 110px;
+      margin-bottom: 90px;
+      display: flex;
+      justify-content: center;
     }
 
+    /* 로고가 흐려지지 않도록 고화질 설정 및 선명도 강화 */
     .logo img {
-      height: 190px;
+      width: 100%;
+      max-width: 450px; /* 로고 크기 최적화 */
+      height: auto;
+      image-rendering: -webkit-optimize-contrast; /* 선명도 강제 최적화 */
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      filter: brightness(1.1); /* 로고 가독성 향상 */
     }
 
     .logo img:hover {
-      transform: scale(1.04);
-      filter: drop-shadow(0 25px 50px rgba(0, 180, 255, 0.3));
+      transform: scale(1.02);
+      filter: brightness(1.2) drop-shadow(0 0 30px rgba(255, 255, 255, 0.1));
     }
 
     h1 {
@@ -156,6 +159,7 @@
     }
 
     ul { list-style: none; }
+    li { margin-bottom: 12px; }
   </style>
 </head>
 <body>
@@ -163,9 +167,7 @@
   
   <div class="container">
     <div class="logo">
-      <a href="/">
-        <img src="logo.jpg" alt="BlackRock Labs Logo">
-      </a>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/BlackRock_wordmark.svg/2560px-BlackRock_wordmark.svg.png" alt="BlackRock Labs Logo" style="filter: invert(1) brightness(2);">
     </div>
 
     <h1>데이터 기반 주식 정보 플랫폼</h1>
@@ -179,9 +181,9 @@
 
     <div class="section">
       <ul>
-        <li>실시간 시장 데이터 및 전문 분석</li>
-        <li>초보자부터 전문 투자자까지 활용 가능한 인사이트</li>
-        <li>매일 업데이트되는 핵심 종목 및 트렌드</li>
+        <li>✔️ 실시간 시장 데이터 및 전문 분석</li>
+        <li>✔️ 초보자부터 전문 투자자까지 활용 가능한 인사이트</li>
+        <li>✔️ 매일 업데이트되는 핵심 종목 및 트렌드</li>
       </ul>
     </div>
 
@@ -204,8 +206,8 @@
     </div>
 
     <div class="footer">
-      <a href="terms.html">이용약관</a> | 
-      <a href="privacy.html">개인정보처리방침</a>
+      <a href="#">이용약관</a> | 
+      <a href="#">개인정보처리방침</a>
     </div>
   </div>
 </body>
