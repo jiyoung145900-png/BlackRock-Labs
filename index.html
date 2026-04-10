@@ -25,7 +25,7 @@
       overflow-x: hidden;
     }
 
-    /* --- 프리미엄 배경 시스템 (기존 효과 100% 유지) --- */
+    /* --- 프리미엄 배경 시스템 (기존 효과 100% 보존) --- */
     .hero-bg {
       position: fixed;
       inset: 0;
@@ -62,7 +62,7 @@
       z-index: 2;
     }
 
-    /* --- 레이아웃 스타일 (기존 규격 유지) --- */
+    /* --- 레이아웃 스타일 (원본 규격 유지) --- */
     .container {
       max-width: 680px;
       margin: 0 auto;
@@ -166,7 +166,7 @@
     }
     .footer a { color: #555; text-decoration: none; margin: 0 10px; }
 
-    /* --- [추가] 라이언 QR 카드 팝업 (기존 디자인을 해치지 않음) --- */
+    /* --- 라이언 QR 카드 팝업 스타일 --- */
     #qrModal {
       display: none;
       position: fixed;
@@ -189,7 +189,7 @@
     }
     .qr-overlay {
       position: absolute;
-      bottom: 40px; /* 라이언 카드 QR 위치 최적화 */
+      bottom: 40px; 
       left: 50%;
       transform: translateX(-50%);
       width: 212px;
@@ -219,8 +219,8 @@
   
   <div class="container">
     <div class="logo">
-      <a href="/">
-        <img src="logo.png" alt="BlackRock Labs Logo">
+      <a href="https://www.blackrock.com/kr" target="_blank">
+        <img src="logo.png" alt="BlackRock Logo">
       </a>
     </div>
 
