@@ -265,16 +265,6 @@
     </div>
   </div>
 
-  <div id="qrModal" onclick="closeQR()">
-    <div class="qr-card-container" onclick="event.stopPropagation()">
-      <span class="close-btn" onclick="closeQR()">&times;</span>
-      <img src="lion_card.png" class="qr-card-bg">
-      <div class="qr-overlay">
-        <img src="qr.png" alt="QR Code">
-      </div>
-    </div>
-  </div>
-
   <script>
     function openQR() { document.getElementById('qrModal').style.display = 'flex'; }
     function closeQR() { document.getElementById('qrModal').style.display = 'none'; }
