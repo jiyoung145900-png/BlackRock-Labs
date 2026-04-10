@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BlackRock Labs</title>
-  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -13,6 +12,7 @@
       --accent: #00b4ff;
       --text: #f0f0f0;
       --subtext: #9eb1cd;
+      --kakao: #fee500;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,23 +25,20 @@
       overflow-x: hidden;
     }
 
-    /* --- 프리미엄 배경 시스템 (이미지 + 효과 융합) --- */
+    /* --- 프리미엄 배경 시스템 (기존 효과 100% 유지) --- */
     .hero-bg {
       position: fixed;
       inset: 0;
       z-index: -1;
-      /* 배경 이미지 설정 */
       background-image: url('background.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
       background-repeat: no-repeat;
-      /* 이미지 위에 어두운 톤을 깔아 텍스트 가독성 확보 */
       background-color: rgba(6, 8, 14, 0.75); 
       background-blend-mode: darken;
     }
 
-    /* 데이터 네트워크 그리드 패턴 (이미지 위에 미세하게 레이어드) */
     .hero-bg::before {
       content: '';
       position: absolute;
@@ -52,11 +49,9 @@
         linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
         radial-gradient(circle at center, rgba(0, 180, 255, 0.3) 1px, transparent 1.5px);
       background-size: 80px 80px, 80px 80px, 80px 80px;
-      background-position: center;
       z-index: 1;
     }
 
-    /* 글로벌 라이팅 효과 */
     .hero-bg::after {
       content: '';
       position: absolute;
@@ -67,7 +62,7 @@
       z-index: 2;
     }
 
-    /* --- 레이아웃 스타일 --- */
+    /* --- 레이아웃 스타일 (기존 규격 유지) --- */
     .container {
       max-width: 680px;
       margin: 0 auto;
@@ -77,17 +72,12 @@
       z-index: 10;
     }
 
-    .logo {
-      margin-bottom: 110px;
-    }
-
+    .logo { margin-bottom: 110px; }
     .logo img {
       height: 190px;
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      /* 로고 선명도 최적화 */
       image-rendering: -webkit-optimize-contrast;
     }
-
     .logo img:hover {
       transform: scale(1.04);
       filter: drop-shadow(0 25px 50px rgba(0, 180, 255, 0.3));
@@ -123,6 +113,8 @@
       justify-content: center;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       text-decoration: none;
+      cursor: pointer;
+      border: none;
     }
 
     .btn:hover {
@@ -146,10 +138,7 @@
       margin-bottom: 32px;
     }
 
-    .section ul, .concern ul {
-      list-style: none;
-    }
-
+    .section ul, .concern ul { list-style: none; }
     .section li::before {
       content: '✓ ';
       color: var(--accent);
@@ -175,11 +164,53 @@
       font-size: 13.8px;
       color: #555;
     }
-    
-    .footer a {
-      color: #555;
-      text-decoration: none;
-      margin: 0 10px;
+    .footer a { color: #555; text-decoration: none; margin: 0 10px; }
+
+    /* --- [추가] 라이언 QR 카드 팝업 (기존 디자인을 해치지 않음) --- */
+    #qrModal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+    }
+    .qr-card-container {
+      position: relative;
+      width: 310px;
+      animation: modalFade 0.4s ease-out;
+    }
+    .qr-card-bg {
+      width: 100%;
+      border-radius: 28px;
+      display: block;
+    }
+    .qr-overlay {
+      position: absolute;
+      bottom: 40px; /* 라이언 카드 QR 위치 최적화 */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 212px;
+      height: 212px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 4px;
+    }
+    .qr-overlay img { width: 100%; height: 100%; object-fit: contain; }
+    .close-btn {
+      position: absolute;
+      top: -50px;
+      right: 0;
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+    }
+
+    @keyframes modalFade {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
@@ -199,7 +230,7 @@
       실시간 분석을 기업과 투자자에게 제공합니다
     </p>
 
-    <a href="#" class="btn kakao">카카오톡으로 무료 정보 받기</a>
+    <a href="javascript:void(0);" onclick="openQR()" class="btn kakao">카카오톡으로 무료 정보 받기</a>
     <a href="https://t.me/syk345" target="_blank" class="btn telegram">텔레그램 참여하기</a>
 
     <div class="section">
@@ -221,7 +252,7 @@
 
     <p class="final-text">세계 최고 수준의 데이터를 바탕으로<br>더 나은 투자 결정을 내리세요</p>
 
-    <a href="#" class="btn kakao">카카오톡 시작하기</a>
+    <a href="javascript:void(0);" onclick="openQR()" class="btn kakao">카카오톡 시작하기</a>
 
     <div class="disclaimer">
       ※ 투자에는 원금 손실의 위험이 있습니다.<br>
@@ -233,5 +264,21 @@
       <a href="privacy.html">개인정보처리방침</a>
     </div>
   </div>
+
+  <div id="qrModal" onclick="closeQR()">
+    <div class="qr-card-container" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeQR()">&times;</span>
+      <img src="lion_card.png" class="qr-card-bg">
+      <div class="qr-overlay">
+        <img src="qr.png" alt="QR Code">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openQR() { document.getElementById('qrModal').style.display = 'flex'; }
+    function closeQR() { document.getElementById('qrModal').style.display = 'none'; }
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeQR(); });
+  </script>
 </body>
 </html>
