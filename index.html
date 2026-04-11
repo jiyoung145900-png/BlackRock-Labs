@@ -29,7 +29,7 @@
       overflow-x: hidden;
     }
 
-    /* --- 프리미엄 배경 시스템 (기존 효과 100% 보존) --- */
+    /* --- 프리미엄 배경 시스템 --- */
     .hero-bg {
       position: fixed;
       inset: 0;
@@ -66,7 +66,7 @@
       z-index: 2;
     }
 
-    /* --- 레이아웃 스타일 (원본 규격 유지) --- */
+    /* --- 레이아웃 스타일 --- */
     .container {
       max-width: 680px;
       margin: 0 auto;
@@ -76,9 +76,9 @@
       z-index: 10;
     }
 
-    .logo { margin-bottom: 110px; }
+    .logo { margin-bottom: 80px; }
     .logo img {
-      height: 190px;
+      height: 180px;
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       image-rendering: -webkit-optimize-contrast;
     }
@@ -91,16 +91,17 @@
       font-size: 38px;
       font-weight: 700;
       letter-spacing: -1.5px;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       line-height: 1.2;
     }
 
     .subtitle {
-      font-size: 19.5px;
+      font-size: 19px;
       color: var(--subtext);
       max-width: 520px;
-      margin: 0 auto 100px;
+      margin: 0 auto 80px;
       line-height: 1.6;
+      word-break: keep-all;
     }
 
     .btn {
@@ -111,7 +112,7 @@
       padding: 21px 32px;
       border-radius: 20px;
       font-size: 17.8px;
-      font-weight: 600;
+      font-weight: 700;
       min-height: 64px;
       align-items: center;
       justify-content: center;
@@ -126,85 +127,62 @@
       box-shadow: 0 25px 60px rgba(0, 180, 255, 0.35);
     }
 
+    /* 카카오톡 강조색상 유지 및 외부 링크 연결용 */
     .kakao { background: #fee500; color: #000; }
     .telegram { background: #00b4ff; color: #fff; }
 
     .section, .concern {
-      margin: 110px auto 0;
-      max-width: 420px;
+      margin: 100px auto 0;
+      max-width: 440px;
       text-align: left;
-      font-size: 16.8px;
+      font-size: 16.5px;
     }
 
     .concern h3 {
       font-size: 18.5px;
       color: #b8c4d8;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
     .section ul, .concern ul { list-style: none; }
+    .section li { margin-bottom: 12px; }
     .section li::before {
       content: '✓ ';
       color: var(--accent);
       font-weight: bold;
     }
+    .concern li { margin-bottom: 10px; color: #8a99af; }
 
     .final-text {
       font-size: 19px;
       color: #e0e0e0;
       margin: 90px 0 50px;
       line-height: 1.55;
+      font-weight: 500;
     }
 
     .disclaimer {
-      margin-top: 140px;
-      font-size: 14px;
-      color: #666;
+      margin-top: 120px;
+      font-size: 13px;
+      color: #555;
       line-height: 1.8;
+      word-break: keep-all;
     }
 
     .footer {
-      margin-top: 100px;
-      font-size: 13.8px;
-      color: #555;
+      margin-top: 80px;
+      font-size: 13.5px;
+      color: #444;
     }
-    .footer a { color: #555; text-decoration: none; margin: 0 10px; }
+    .footer a { color: #444; text-decoration: none; margin: 0 10px; }
 
-    /* --- [수정 완료] 라이언 배경 제거 버전 QR 팝업 --- */
-    #qrModal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.95); /* 배경 완전 어둡게 */
-      z-index: 10000;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(15px);
-    }
-    .qr-card-container {
-      position: relative;
-      width: 350px; 
-      animation: modalFade 0.4s ease-out;
-    }
-    .qr-single-img {
-      width: 100%;
-      height: auto;
-      border-radius: 15px; 
-      display: block;
-      box-shadow: 0 0 40px rgba(0, 180, 255, 0.3); 
-    }
-    .close-btn {
-      position: absolute;
-      top: -50px;
-      right: 0;
-      color: #fff;
-      font-size: 40px;
-      cursor: pointer;
-    }
-
-    @keyframes modalFade {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+    /* 모바일 최적화 반응형 추가 */
+    @media (max-width: 480px) {
+      .container { padding: 80px 20px 100px; }
+      .logo img { height: 130px; }
+      h1 { font-size: 28px; }
+      .subtitle { font-size: 17px; margin-bottom: 60px; }
+      .btn { font-size: 16.5px; padding: 18px 24px; }
     }
   </style>
 </head>
@@ -224,7 +202,7 @@
       실시간 분석을 기업과 투자자에게 제공합니다
     </p>
 
-    <a href="javascript:void(0);" onclick="openQR()" class="btn kakao">카카오톡으로 무료 정보 받기</a>
+    <a href="https://buly.kr/6XoDRiT" target="_blank" class="btn kakao">카카오톡으로 무료 정보 받기</a>
     <a href="https://t.me/syk345" target="_blank" class="btn telegram">텔레그램 참여하기</a>
 
     <div class="section">
@@ -246,7 +224,7 @@
 
     <p class="final-text">세계 최고 수준의 데이터를 바탕으로<br>더 나은 투자 결정을 내리세요</p>
 
-    <a href="javascript:void(0);" onclick="openQR()" class="btn kakao">카카오톡 시작하기</a>
+    <a href="https://buly.kr/6XoDRiT" target="_blank" class="btn kakao">카카오톡 시작하기</a>
 
     <div class="disclaimer">
       ※ 투자에는 원금 손실의 위험이 있습니다.<br>
@@ -259,17 +237,5 @@
     </div>
   </div>
 
-  <div id="qrModal" onclick="closeQR()">
-    <div class="qr-card-container" onclick="event.stopPropagation()">
-      <span class="close-btn" onclick="closeQR()">&times;</span>
-      <img src="qr.png" class="qr-single-img" alt="카카오톡 QR 코드">
-    </div>
-  </div>
-
-  <script>
-    function openQR() { document.getElementById('qrModal').style.display = 'flex'; }
-    function closeQR() { document.getElementById('qrModal').style.display = 'none'; }
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeQR(); });
-  </script>
-</body>
+  </body>
 </html>
