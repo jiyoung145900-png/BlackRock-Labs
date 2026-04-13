@@ -22,9 +22,9 @@
       --bg-deep: #06080e;
       --bg-card: rgba(13, 17, 28, 0.75);
       --accent: #00b4ff;
+      --telegram: #0088cc;
       --text: #ffffff;
       --subtext: #9eb1cd;
-      --kakao: #fee500;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -86,9 +86,9 @@
       color: var(--subtext);
       margin-bottom: 60px;
       font-weight: 300;
-      word-break: keep-all;
     }
 
+    /* 상담 버튼 스타일링 */
     .btn-group { margin-bottom: 80px; }
     
     .btn {
@@ -97,7 +97,7 @@
       height: 68px;
       margin: 16px auto;
       border-radius: 18px;
-      font-size: 19px;
+      font-size: 18px;
       font-weight: 700;
       align-items: center;
       justify-content: center;
@@ -108,14 +108,18 @@
 
     .btn:hover {
       transform: translateY(-4px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 15px 40px rgba(0, 180, 255, 0.2);
     }
 
-    .kakao { background: var(--kakao); color: #000; }
-    .telegram { 
+    .btn-tg-primary {
+      background: var(--telegram);
+      color: #fff;
+    }
+
+    .btn-tg-outline { 
       background: rgba(255, 255, 255, 0.05); 
       color: #fff; 
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(10px);
     }
 
@@ -185,6 +189,7 @@
       h1 { font-size: 28px; }
       .subtitle { font-size: 17px; }
       .logo img { height: 110px; }
+      .btn { font-size: 16px; height: 60px; }
     }
   </style>
 </head>
@@ -204,8 +209,8 @@
     </p>
 
     <div class="btn-group">
-      <a href="https://buly.kr/6XoDRiT" target="_blank" class="btn kakao">카카오톡 실시간 리포트 신청</a>
-      <a href="https://t.me/syk345" target="_blank" class="btn telegram">텔레그램 공식 채널 입장</a>
+      <a href="https://t.me/syk345" target="_blank" class="btn btn-tg-primary">텔레그램 실시간 상담 (syk345)</a>
+      <a href="https://t.me/BRWM_Noeul" target="_blank" class="btn btn-tg-outline">텔레그램 전문 상담 (Noeul)</a>
     </div>
 
     <div class="info-card">
@@ -228,7 +233,9 @@
 
     <p class="final-text">검증된 분석 데이터와 함께<br>성공적인 투자 전략을 시작하세요.</p>
 
-    <a href="https://buly.kr/6XoDRiT" target="_blank" class="btn kakao" style="max-width: 400px;">카카오톡 상담 시작하기</a>
+    <div style="max-width: 450px; margin: 0 auto;">
+        <a href="https://t.me/syk345" target="_blank" class="btn btn-tg-primary">1:1 상담 문의하기</a>
+    </div>
 
     <div class="disclaimer">
       ※ 투자 유의사항: 본 플랫폼에서 제공하는 정보는 투자 참고 자료이며, 투자 결과에 대한 책임은 본인에게 있습니다. 원금 손실의 가능성이 있음을 인지하시고 신중한 투자 결정을 내리시기 바랍니다.
@@ -240,7 +247,7 @@
         <a href="privacy.html">개인정보처리방침</a>
       </div>
       <div class="footer-info">
-        고객센터: 텔레그램 실시간 상담 및 카카오톡 채널<br>
+        고객센터: 텔레그램 실시간 상담 채널<br>
         운영시간: 평일 09:00 - 18:00 (공휴일 제외)<br>
         Copyright © BlackLabs Insight. All rights reserved.
       </div>
