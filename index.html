@@ -11,18 +11,18 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BlackRock Labs</title>
+  <title>BlackLabs Insight</title>
   
   <link rel="icon" type="image/png" href="favicon_br.png">
   <link rel="shortcut icon" type="image/png" href="favicon_br.png">
   
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-deep: #06080e;
-      --bg-mid: #090c15;
+      --bg-card: rgba(13, 17, 28, 0.75);
       --accent: #00b4ff;
-      --text: #f0f0f0;
+      --text: #ffffff;
       --subtext: #9eb1cd;
       --kakao: #fee500;
     }
@@ -30,11 +30,12 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
       background-color: var(--bg-deep);
       color: var(--text);
-      line-height: 1.75;
+      line-height: 1.6;
       overflow-x: hidden;
+      word-break: keep-all;
     }
 
     .hero-bg {
@@ -44,200 +45,205 @@
       background-image: url('background.jpg');
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      background-color: rgba(6, 8, 14, 0.75); 
-      background-blend-mode: darken;
+      background-color: #000;
     }
 
-    .hero-bg::before {
-      content: '';
-      position: absolute;
+    .hero-overlay {
+      position: fixed;
       inset: 0;
-      opacity: 0.04; 
-      background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-        radial-gradient(circle at center, rgba(0, 180, 255, 0.3) 1px, transparent 1.5px);
-      background-size: 80px 80px, 80px 80px, 80px 80px;
-      z-index: 1;
-    }
-
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: 
-        radial-gradient(circle at 80% 20%, rgba(0, 180, 255, 0.07) 0%, transparent 50%),
-        radial-gradient(circle at 20% 80%, rgba(0, 180, 255, 0.04) 0%, transparent 50%);
-      z-index: 2;
+      z-index: -1;
+      background: radial-gradient(circle at center, rgba(6, 8, 14, 0.7) 0%, rgba(6, 8, 14, 0.98) 100%);
     }
 
     .container {
-      max-width: 680px;
+      max-width: 600px;
       margin: 0 auto;
-      padding: 120px 32px 160px;
+      padding: 80px 24px 100px;
       text-align: center;
       position: relative;
-      z-index: 10;
     }
 
-    .logo { margin-bottom: 80px; }
-    .logo img {
-      height: 180px;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      image-rendering: -webkit-optimize-contrast;
+    .logo { 
+      margin-bottom: 50px; 
+      display: inline-block;
+      cursor: default;
     }
-    .logo img:hover {
-      transform: scale(1.04);
-      filter: drop-shadow(0 25px 50px rgba(0, 180, 255, 0.3));
+    .logo img {
+      height: 140px;
+      filter: drop-shadow(0 10px 30px rgba(0, 180, 255, 0.2));
     }
 
     h1 {
-      font-size: 38px;
+      font-size: 34px;
       font-weight: 700;
-      letter-spacing: -1.5px;
       margin-bottom: 24px;
+      letter-spacing: -1.5px;
       line-height: 1.2;
     }
 
     .subtitle {
       font-size: 19px;
       color: var(--subtext);
-      max-width: 520px;
-      margin: 0 auto 80px;
-      line-height: 1.6;
+      margin-bottom: 60px;
+      font-weight: 300;
       word-break: keep-all;
     }
 
+    .btn-group { margin-bottom: 80px; }
+    
     .btn {
       display: flex;
       width: 100%;
-      max-width: 440px;
-      margin: 18px auto;
-      padding: 21px 32px;
-      border-radius: 20px;
-      font-size: 17.8px;
+      height: 68px;
+      margin: 16px auto;
+      border-radius: 18px;
+      font-size: 19px;
       font-weight: 700;
-      min-height: 64px;
       align-items: center;
       justify-content: center;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s ease;
       text-decoration: none;
-      cursor: pointer;
       border: none;
     }
 
     .btn:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 25px 60px rgba(0, 180, 255, 0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
     }
 
-    .kakao { background: #fee500; color: #000; }
-    .telegram { background: #00b4ff; color: #fff; }
+    .kakao { background: var(--kakao); color: #000; }
+    .telegram { 
+      background: rgba(255, 255, 255, 0.05); 
+      color: #fff; 
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+    }
 
-    .section, .concern {
-      margin: 100px auto 0;
-      max-width: 440px;
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 28px;
+      padding: 45px 35px;
       text-align: left;
-      font-size: 16.5px;
+      margin-bottom: 30px;
+      backdrop-filter: blur(20px);
     }
 
-    .concern h3 {
-      font-size: 18.5px;
-      color: #b8c4d8;
-      margin-bottom: 28px;
+    .info-card h3 {
+      font-size: 20px;
+      margin-bottom: 25px;
+      color: var(--accent);
+      font-weight: 700;
     }
 
-    .section ul, .concern ul { list-style: none; }
-    .section li { margin-bottom: 12px; }
-    .section li::before {
-      content: '✓ ';
+    .info-card ul { list-style: none; }
+    .info-card li { 
+      margin-bottom: 18px; 
+      font-size: 16.5px; 
+      color: #e2e8f0;
+      display: flex;
+    }
+    
+    .info-card li::before {
+      content: '✓';
+      margin-right: 15px;
       color: var(--accent);
       font-weight: bold;
     }
-    .concern li { margin-bottom: 10px; color: #8a99af; }
 
     .final-text {
-      font-size: 19px;
-      color: #e0e0e0;
-      margin: 90px 0 50px;
-      line-height: 1.55;
-      font-weight: 500;
+      font-size: 21px;
+      color: #fff;
+      margin: 90px 0 45px;
+      font-weight: 600;
+      line-height: 1.5;
     }
 
     .disclaimer {
-      margin-top: 120px;
       font-size: 13px;
-      color: #555;
+      color: #555c66;
+      background: rgba(0,0,0,0.3);
+      padding: 25px;
+      border-radius: 15px;
+      margin-top: 100px;
+      text-align: left;
       line-height: 1.8;
-      word-break: keep-all;
     }
 
     .footer {
-      margin-top: 80px;
-      font-size: 13.5px;
-      color: #444;
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      font-size: 13px;
+      color: #4a5568;
     }
-    .footer a { color: #444; text-decoration: none; margin: 0 10px; }
+    .footer a { color: #4a5568; text-decoration: none; margin: 0 10px; }
+    .footer-info { margin-top: 20px; line-height: 2; }
 
     @media (max-width: 480px) {
-      .container { padding: 80px 20px 100px; }
-      .logo img { height: 130px; }
+      .container { padding: 60px 20px; }
       h1 { font-size: 28px; }
-      .subtitle { font-size: 17px; margin-bottom: 60px; }
-      .btn { font-size: 16.5px; padding: 18px 24px; }
+      .subtitle { font-size: 17px; }
+      .logo img { height: 110px; }
     }
   </style>
 </head>
 <body>
   <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
   
   <div class="container">
     <div class="logo">
-      <a href="https://www.blackrock.com/kr" target="_blank">
-        <img src="logo.png" alt="BlackRock Logo">
-      </a>
+      <img src="logo.png" alt="BlackLabs Logo">
     </div>
 
-    <h1>데이터 기반 주식 정보 플랫폼</h1>
+    <h1>데이터 기반 주식 분석 플랫폼</h1>
     <p class="subtitle">
-      시장을 선도하는 인사이트와<br>
-      실시간 분석을 기업과 투자자에게 제공합니다
+      신뢰할 수 있는 데이터와 정밀한 분석으로<br>
+      시장의 흐름을 가장 먼저 확인하세요.
     </p>
 
-    <a href="https://buly.kr/6XoDRiT" target="_blank" class="btn kakao">카카오톡으로 무료 정보 받기</a>
-    <a href="https://t.me/syk345" target="_blank" class="btn telegram">텔레그램 참여하기</a>
+    <div class="btn-group">
+      <a href="https://buly.kr/6XoDRiT" target="_blank" class="btn kakao">카카오톡 실시간 리포트 신청</a>
+      <a href="https://t.me/syk345" target="_blank" class="btn telegram">텔레그램 공식 채널 입장</a>
+    </div>
 
-    <div class="section">
+    <div class="info-card">
+      <h3>Premium Insight</h3>
       <ul>
-        <li>실시간 시장 데이터 및 전문 분석</li>
-        <li>초보자부터 전문 투자자까지 활용 가능한 인사이트</li>
-        <li>매일 업데이트되는 핵심 종목 및 트렌드</li>
+        <li>실시간 글로벌 마켓 데이터 심층 분석</li>
+        <li>데이터 기반 업종별 핵심 테마 분석</li>
+        <li>매일 업데이트되는 전문가 데일리 리포트</li>
       </ul>
     </div>
 
-    <div class="concern">
-      <h3>이런 고민 있으신가요?</h3>
+    <div class="info-card">
+      <h3 style="color: #ed8936;">Core Strategy</h3>
       <ul>
-        <li>• 시장 정보가 너무 많아 혼란스럽습니다</li>
-        <li>• 믿을 수 있는 분석을 찾기 어렵습니다</li>
-        <li>• 중요한 투자 타이밍을 놓칩니다</li>
+        <li>객관적인 지표 중심의 투자 인사이트</li>
+        <li>복잡한 시장 정보의 명확한 데이터 시각화</li>
+        <li>신속한 트렌드 파악 및 대응 전략 지원</li>
       </ul>
     </div>
 
-    <p class="final-text">세계 최고 수준의 데이터를 바탕으로<br>더 나은 투자 결정을 내리세요</p>
+    <p class="final-text">검증된 분석 데이터와 함께<br>성공적인 투자 전략을 시작하세요.</p>
 
-    <a href="https://buly.kr/6XoDRiT" target="_blank" class="btn kakao">카카오톡 시작하기</a>
+    <a href="https://buly.kr/6XoDRiT" target="_blank" class="btn kakao" style="max-width: 400px;">카카오톡 상담 시작하기</a>
 
     <div class="disclaimer">
-      ※ 투자에는 원금 손실의 위험이 있습니다.<br>
-      모든 정보는 참고용이며, 투자 판단의 책임은 본인에게 있습니다.
+      ※ 투자 유의사항: 본 플랫폼에서 제공하는 정보는 투자 참고 자료이며, 투자 결과에 대한 책임은 본인에게 있습니다. 원금 손실의 가능성이 있음을 인지하시고 신중한 투자 결정을 내리시기 바랍니다.
     </div>
 
     <div class="footer">
-      <a href="terms.html">이용약관</a> | 
-      <a href="privacy.html">개인정보처리방침</a>
+      <div class="footer-links">
+        <a href="terms.html">이용약관</a> | 
+        <a href="privacy.html">개인정보처리방침</a>
+      </div>
+      <div class="footer-info">
+        고객센터: 텔레그램 실시간 상담 및 카카오톡 채널<br>
+        운영시간: 평일 09:00 - 18:00 (공휴일 제외)<br>
+        Copyright © BlackLabs Insight. All rights reserved.
+      </div>
     </div>
   </div>
 </body>
