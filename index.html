@@ -1,20 +1,23 @@
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18085291008"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18088821273"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  // 1. 기본 연결 설정
-  gtag('config', 'AW-18085291008', {
-    'allow_enhanced_conversions': true,
-    'cookie_flags': 'SameSite=None;Secure'
-  });
+    // 1. 기본 연결 설정 (새 ID 반영 및 고급 설정 유지)
+    gtag('config', 'AW-18088821273', {
+      'allow_enhanced_conversions': true,
+      'cookie_flags': 'SameSite=None;Secure'
+    });
 
-  // 2. [추가] 이미지 속 '미감지' 문제를 해결하는 특정 전환 신호
-  gtag('event', 'conversion', {
-      'send_to': 'AW-18085291008/xPjcCJnqiZscEIDI3q9D'
-  });
-</script>
+    // 2. 특정 전환 신호 (미감지 해결용 코드 업데이트)
+    gtag('event', 'conversion', {
+        'send_to': 'AW-18088821273/xPjcCJnqiZscEIDI3q9D'
+    });
+  </script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -54,7 +57,6 @@
 
     .container { max-width: 650px; margin: 0 auto; padding: 60px 20px 120px; text-align: center; position: relative; }
 
-    /* [기능 유지] 로고 애니메이션 */
     .logo { margin-bottom: 40px; display: inline-block; }
     .logo img { height: 120px; filter: drop-shadow(0 0 35px rgba(0, 180, 255, 0.35)); animation: pulse 3s infinite ease-in-out; }
     @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(0.96); opacity: 0.85; } }
@@ -67,7 +69,6 @@
     .section-header .line { flex-grow: 1; height: 1px; background: var(--border-light); }
     .section-header span { font-size: 14px; font-weight: 900; color: var(--accent); letter-spacing: 2px; }
 
-    /* 카카오톡 섹션 */
     .kakao-card {
       background: var(--kakao); color: var(--kakao-dark); padding: 50px 20px; border-radius: 12px;
       box-shadow: 0 30px 60px rgba(0,0,0,0.6); position: relative; overflow: hidden;
@@ -79,7 +80,6 @@
     .copy-btn { background: var(--kakao-dark); color: var(--kakao); border: none; padding: 20px 45px; border-radius: 4px; font-size: 18px; font-weight: 900; cursor: pointer; transition: 0.3s; margin-top: 15px; -webkit-appearance: none; }
     .copy-btn:active { background: #000; transform: scale(0.98); }
 
-    /* 텔레그램 섹션 (구분감 강화) */
     .tg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
     .btn-tg {
       height: 100px; text-decoration: none; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -90,14 +90,12 @@
     .btn-tg .name { color: #fff; font-size: 20px; font-weight: 800; }
     .btn-tg .role { color: var(--accent); font-size: 13px; font-weight: 700; margin-top: 6px; }
 
-    /* 정보 카드 */
     .info-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 40px 30px; text-align: left; margin-bottom: 25px; }
     .info-card h3 { font-size: 22px; margin-bottom: 25px; color: var(--accent); font-weight: 900; border-left: 6px solid var(--accent); padding-left: 15px; }
     .info-card ul { list-style: none; }
     .info-card li { margin-bottom: 15px; font-size: 18px; color: #e2e8f0; display: flex; align-items: flex-start; gap: 12px; }
     .info-card li::before { content: '✓'; color: var(--accent); font-weight: 900; }
 
-    /* WSJ 아티클 */
     .wsj-article { background: #fff; color: #1a1a1a; padding: 60px 40px; text-align: left; margin-top: 80px; border-radius: 4px; line-height: 2.1; position: relative; }
     .wsj-article h4 { font-family: 'Playfair Display', serif; font-size: 30px; margin: 25px 0 30px; font-weight: 800; border-bottom: 2px solid #1a1a1a; padding-bottom: 15px; }
     .wsj-article .dropcap { float: left; font-size: 80px; line-height: 65px; padding-top: 6px; padding-right: 12px; font-family: 'Playfair Display', serif; font-weight: 700; color: #000; }
@@ -105,7 +103,6 @@
     .final-cta { font-size: 26px; color: #fff; margin: 80px 0 40px; font-weight: 900; line-height: 1.5; }
     .disclaimer { font-size: 13px; color: #718096; background: rgba(0,0,0,0.4); padding: 30px; border-radius: 8px; margin-top: 80px; text-align: left; line-height: 2.0; border: 1px solid var(--border-light); }
     
-    /* [수정] 푸터 링크 레이아웃 보완 */
     .footer { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border-light); font-size: 14px; color: #4a5568; }
     .footer-links { margin-bottom: 20px; }
     .footer-links a { color: #667eea; text-decoration: none; margin: 0 15px; font-weight: 700; }
