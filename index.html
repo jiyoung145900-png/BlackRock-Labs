@@ -1,16 +1,20 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18085291008"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-18085291008', {
-      'allow_enhanced_conversions': true,
-      'cookie_flags': 'SameSite=None;Secure'
-    });
-  </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18085291008"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // 1. 기본 연결 설정
+  gtag('config', 'AW-18085291008', {
+    'allow_enhanced_conversions': true,
+    'cookie_flags': 'SameSite=None;Secure'
+  });
+
+  // 2. [추가] 이미지 속 '미감지' 문제를 해결하는 특정 전환 신호
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18085291008/xPjcCJnqiZscEIDI3q9D'
+  });
+</script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
